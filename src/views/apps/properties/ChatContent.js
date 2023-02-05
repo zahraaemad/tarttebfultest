@@ -28,7 +28,7 @@ const ChatContent = props => {
  
  return (
 <div>
-<h1 style={{color:"black",fontSize:"20px" , marginLeft:"1rem"}}>All Properties</h1>
+<h1 style={{color:"black",fontSize:"20px" , marginLeft:"1rem",marginTop:"2rem"}}>All Properties</h1>
   <TableContainer component={Paper}>
   <Table sx={{ minWidth: 650 }} aria-label="simple table">
     <TableHead>

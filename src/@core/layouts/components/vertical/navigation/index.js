@@ -1,6 +1,6 @@
 // ** React Import
 import { useRef, useState } from 'react'
-
+import classes from './VerticalNavHeader.module.css'
 // ** MUI Import
 import List from '@mui/material/List'
 import Box from '@mui/material/Box'
@@ -130,7 +130,7 @@ const Navigation = props => {
           {userNavMenuContent ? (
             userNavMenuContent(props)
           ) : (
-            <List className='nav-items' sx={{ pt: 0, '& > :first-child': { mt: '0' } }}>
+            <List className={'nav-items' + classes.navItems } sx={{ pt: 0, '& > :first-child': { mt: '0' } }}>
               <VerticalNavItems
                 navHover={navHover}
                 groupActive={groupActive}

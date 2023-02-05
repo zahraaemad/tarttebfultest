@@ -1,7 +1,7 @@
 // ** Next Imports
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import classes from './VerticalNavHeader.module.css'
 // ** MUI Imports
 import Chip from '@mui/material/Chip'
 import ListItem from '@mui/material/ListItem'
@@ -21,6 +21,7 @@ import CanViewNavLink from 'src/layouts/components/acl/CanViewNavLink'
 
 // ** Util Import
 import { handleURLQueries } from 'src/@core/layouts/utils'
+import { ClassNames } from '@emotion/react'
 
 // ** Styled Components
 const MenuNavLink = styled(ListItemButton)(({ theme }) => ({
@@ -36,7 +37,7 @@ const MenuNavLink = styled(ListItemButton)(({ theme }) => ({
     },
     '& .MuiTypography-root': {
       fontWeight: 500,
-      color: `${theme.palette.common.white} !important`
+      color: `white !important`
     },
     '& .MuiListItemIcon-root': {
       color: `${theme.palette.common.white} !important`
@@ -73,14 +74,9 @@ const VerticalNavLink = ({
   const icon = parent && !item.icon ? themeConfig.navSubItemIcon : item.icon
 
   const conditionalIconColor = () => {
-    if (mode === 'semi-dark') {
-      return {
-        color: `rgba(${theme.palette.customColors.dark}, ${parent ? 0.6 : 0.87})`
-      }
-    } else
-      return {
-        color: parent ? 'text.secondary' : 'text.primary'
-      }
+    return {
+      color: `#01d7f4`
+    }
   }
 
   const conditionalBgColor = () => {
@@ -105,7 +101,7 @@ const VerticalNavLink = ({
     <CanViewNavLink navLink={item}>
       <ListItem
         disablePadding
-        className='nav-link'
+        className={'nav-link ' + classes.navLink}
         disabled={item.disabled || false}
         sx={{
           mt: 1.5,
@@ -159,12 +155,12 @@ const VerticalNavLink = ({
               ...(navCollapsed && !navHover ? { opacity: 0 } : { opacity: 1 })
             }}
           >
-            <Typography
+            <Typography sx={{color: 'white'}}
               {...((themeConfig.menuTextTruncate || (!themeConfig.menuTextTruncate && navCollapsed && !navHover)) && {
                 noWrap: true
               })}
             >
-              <Translations text={item.title} />
+              <Translations  text={item.title} />
             </Typography>
             {item.badgeContent ? (
               <Chip

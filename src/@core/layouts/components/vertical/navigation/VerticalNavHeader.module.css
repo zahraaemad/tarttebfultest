@@ -3,6 +3,19 @@
     padding-left: 0px !important;
 }
 
-.sideBar{
+.sideBar {
     background:#132660;
+}
+
+.navLink{
+    color:white !important;
+}
+.drawer{
+    background:#132660;  
+}
+.navItems p {
+    color:white !important;   
+}
+.MuiTypography-root{
+    color:white !important;   
 }

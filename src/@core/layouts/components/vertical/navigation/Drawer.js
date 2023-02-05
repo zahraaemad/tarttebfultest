@@ -1,6 +1,7 @@
 // ** MUI Imports
 import { styled, useTheme } from '@mui/material/styles'
 import MuiSwipeableDrawer from '@mui/material/SwipeableDrawer'
+import classes from './VerticalNavHeader.module.css'
 
 const SwipeableDrawer = styled(MuiSwipeableDrawer)({
   overflowX: 'hidden',
@@ -44,16 +45,9 @@ const Drawer = props => {
   let flag = true
 
   const drawerColors = () => {
-    if (mode === 'semi-dark') {
+ 
       return {
-        backgroundColor: 'customColors.darkBg',
-        '& .MuiTypography-root': {
-          color: `rgba(${theme.palette.customColors.dark}, 0.87)`
-        }
-      }
-    } else
-      return {
-        backgroundColor: 'background.default'
+        backgroundColor: '#132660'
       }
   }
 
@@ -99,7 +93,7 @@ const Drawer = props => {
 
   return (
     <SwipeableDrawer
-      className='layout-vertical-nav'
+      className={'layout-vertical-nav' + classes.drawer}
       variant={hidden ? 'temporary' : 'permanent'}
       {...(hidden ? { ...MobileDrawerProps } : { ...DesktopDrawerProps })}
       PaperProps={{

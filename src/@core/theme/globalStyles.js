@@ -23,25 +23,7 @@ const GlobalStyles = theme => {
         marginLeft: '1rem !important'
       }
     },
-    '.css-h27r9p-MuiPaper-root-MuiDrawer-paper': {
-      backgroundColor: '#132660 !important'
-    },
-    '.css-1cqcuj4-MuiPaper-root-MuiDrawer-paper': {
-      backgroundColor: '#132660 !important'
-    },
-    '.css-1iex7uf':{
-      backgroundColor: '#132660 !important'
-    },
-    '.css-1rbnz5u-MuiTypography-root': {
-      color: 'white !important'
-    },
-    '.css-mylb5r-MuiListItemIcon-root': {
-      color: '#07d2eb !important'
-    },
 
-    '.css-183ajdv':{
-      paddingLeft:'0px !important'
-    },
     
     '.demo-space-y > *:not(:last-of-type)': {
       marginBottom: '1rem'
