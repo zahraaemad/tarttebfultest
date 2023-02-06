@@ -1,6 +1,13 @@
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
-
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
 
@@ -12,83 +19,118 @@ import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
 // ** Demo Components Imports
 import CrmAward from 'src/views/dashboards/crm/CrmAward'
-import CrmTable from 'src/views/dashboards/crm/CrmTable'
-import CrmTotalGrowth from 'src/views/dashboards/crm/CrmTotalGrowth'
-import CrmTotalProfit from 'src/views/dashboards/crm/CrmTotalProfit'
-import CrmMonthlyBudget from 'src/views/dashboards/crm/CrmMonthlyBudget'
-import CrmExternalLinks from 'src/views/dashboards/crm/CrmExternalLinks'
-import CrmWeeklyOverview from 'src/views/dashboards/crm/CrmWeeklyOverview'
-import CrmPaymentHistory from 'src/views/dashboards/crm/CrmPaymentHistory'
-import CrmOrganicSessions from 'src/views/dashboards/crm/CrmOrganicSessions'
-import CrmProjectTimeline from 'src/views/dashboards/crm/CrmProjectTimeline'
-import CrmMeetingSchedule from 'src/views/dashboards/crm/CrmMeetingSchedule'
-import CrmSocialNetworkVisits from 'src/views/dashboards/crm/CrmSocialNetworkVisits'
-import CrmMostSalesInCountries from 'src/views/dashboards/crm/CrmMostSalesInCountries'
+
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
 
 const CrmDashboard = () => {
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <ApexChartWrapper>
+
+
+      <CrmAward />
       <Grid container spacing={6} className='match-height'>
-        <Grid item xs={12} md={4}>
-          <CrmAward />
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
+        <Grid item xs={12} sm={3} md={3}>
           <CardStatisticsVertical
-            stats='155k'
-            color='primary'
-            trendNumber='+22%'
-            title='Total Orders'
-            chipText='Last 4 Month'
-            icon={<Icon icon='mdi:cart-plus' />}
+            stats='0'
+            title='Inquiries'
           />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
+        <Grid item xs={12} sm={3} md={3}>
           <CardStatisticsVertical
-            stats='$13.4k'
-            color='success'
-            trendNumber='+38%'
-            title='Total Sales'
-            chipText='Last Six Month'
-            icon={<Icon icon='mdi:currency-usd' />}
+            stats='0'
+            title='Requests to book'
           />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <CrmTotalProfit />
+        <Grid item xs={12} sm={3} md={3}>
+          <CardStatisticsVertical
+            stats='0'
+            title='Scheduled messages'
+          />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <CrmTotalGrowth />
+        <Grid item xs={12} sm={3} md={3}>
+          <CardStatisticsVertical
+            stats='0'
+            title='Unassigned tasks'
+          />
         </Grid>
-        <Grid item xs={12} md={4}>
-          <CrmOrganicSessions />
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <CrmProjectTimeline />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmWeeklyOverview />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmSocialNetworkVisits />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmMonthlyBudget />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmMeetingSchedule />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmExternalLinks />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmPaymentHistory />
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <CrmMostSalesInCountries />
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <CrmTable />
-        </Grid>
+
       </Grid>
+
+      <Box sx={{ width: '100%', marginTop: '3rem' }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+            <Tab label="Check-ins"  {...a11yProps(0)} />
+            <Tab label="Check-outs" {...a11yProps(1)} />
+            <Tab label="Tasks" {...a11yProps(2)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0} style={{ textAlign: "center" }}>
+          <Card sx={{height:'20rem'}}>
+            <CardContent sx={{ marginTop:"8rem" }} >
+              <Typography variant='h8' sx={{ color: "black"}}>
+              You don't have any upcoming check-ins at the moment
+              </Typography>
+            </CardContent>
+          </Card>
+        </TabPanel>
+        <TabPanel value={value} index={1} style={{ textAlign: "center" }}>
+        <Card sx={{height:'20rem'}}>
+            <CardContent  sx={{ marginTop:"8rem" }} >
+              <Typography variant='h8' sx={{ color: "black" }}>
+              You don't have any upcoming check-outs at the moment
+              </Typography>
+            </CardContent>
+          </Card>
+        </TabPanel>
+        <TabPanel value={value} index={2} style={{ textAlign: "center" }}>
+        <Card sx={{height:'20rem'}}>
+            <CardContent  sx={{ marginTop:"8rem" }}  >
+              <Typography variant='h8' sx={{ color: "black"}}>
+              You don't have any tasks at the moment
+              </Typography>
+            </CardContent>
+          </Card>
+        </TabPanel>
+      </Box>
     </ApexChartWrapper>
   )
 }

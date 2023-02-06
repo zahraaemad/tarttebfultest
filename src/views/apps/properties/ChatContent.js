@@ -14,8 +14,8 @@ import Paper from '@mui/material/Paper';
 import Icon from 'src/@core/components/icon'
 
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, a, b, c, d) {
+  return { name, a, b, c, d };
 }
 
 const rows = [
@@ -49,10 +49,10 @@ const ChatContent = props => {
           <TableCell component="th" scope="row">
             {row.name}
           </TableCell>
-          <TableCell align="right">{row.calories}</TableCell>
-          <TableCell align="right">{row.fat}</TableCell>
-          <TableCell align="right">{row.carbs}</TableCell>
-          <TableCell align="right">{row.protein}</TableCell>
+          <TableCell align="right">{row.a}</TableCell>
+          <TableCell align="right">{row.b}</TableCell>
+          <TableCell align="right">{row.c}</TableCell>
+          <TableCell align="right">{row.d}</TableCell>
         </TableRow>
       ))}
     </TableBody>

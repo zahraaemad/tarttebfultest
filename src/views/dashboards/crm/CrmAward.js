@@ -19,28 +19,16 @@ const TrophyImg = styled('img')(({ theme }) => ({
 
 const CrmAward = () => {
   return (
-    <Card sx={{ position: 'relative' }}>
+    <Card sx={{ position: 'relative' ,margin:"0.3rem",marginBottom:"2rem"}}>
       <CardContent>
-        <Typography variant='h6'>
-          Congratulations{' '}
-          <Box component='span' sx={{ fontWeight: 'bold' }}>
-            Norris
-          </Box>
-          ! 🎉
+        <Typography variant='h5' sx={{ marginBottom:"2rem",color:"black" }}>
+          Good morning, Ahmed
+
         </Typography>
-        <Typography variant='body2' sx={{ mb: 3.25 }}>
-          Best seller of the month
+        <Typography variant='p'>
+          Here is what's happening with your business today
         </Typography>
-        <Typography variant='h5' sx={{ fontWeight: 600, color: 'primary.main' }}>
-          $42.8k
-        </Typography>
-        <Typography variant='body2' sx={{ mb: 3.25 }}>
-          78% of target 🤟🏻
-        </Typography>
-        <Button size='small' variant='contained'>
-          View Sales
-        </Button>
-        <TrophyImg alt='trophy' src='/images/cards/trophy.png' />
+       
       </CardContent>
     </Card>
   )

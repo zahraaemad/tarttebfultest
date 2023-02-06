@@ -111,7 +111,7 @@ const VerticalNavHeader = props => {
   return (
     <MenuHeaderWrapper className={classes.sideBar} sx={{ pl: menuHeaderPaddingLeft() }}>
       {userNavMenuBranding ? (
-        userNavMenuBranding(props)
+        userNavMenuBranding(props) 
       ) : (
         <StyledLink href='/'>
      
