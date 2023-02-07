@@ -28,22 +28,8 @@ const AnalyticsDashboard = () => {
   return (
     <ApexChartWrapper>
       <Grid container spacing={6} className='match-height'>
-        <Grid item xs={12} md={8}>
-          <AnalyticsCongratulations />
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <CardStatisticsVertical
-            stats='155k'
-            color='primary'
-            trendNumber='+22%'
-            title='Total Orders'
-            chipText='Last 4 Month'
-            icon={<Icon icon='mdi:cart-plus' />}
-          />
-        </Grid>
-        <Grid item xs={6} md={2}>
-          <AnalyticsSessions />
-        </Grid>
+        
+      
         <Grid item xs={12} md={8}>
           <AnalyticsTotalTransactions />
         </Grid>

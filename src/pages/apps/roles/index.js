@@ -1,41 +1,65 @@
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
 
-// ** Custom Components Imports
-import PageHeader from 'src/@core/components/page-header'
+// ** Styled Component Import
+import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
 // ** Demo Components Imports
-import Table from 'src/views/apps/roles/Table'
-import RoleCards from 'src/views/apps/roles/RoleCards'
+import CardWidgetsVisitsByDay from 'src/views/ui/cards/widgets/CardWidgetsVisitsByDay'
+import CardWidgetsWeeklySales from 'src/views/ui/cards/widgets/CardWidgetsWeeklySales'
+import CardWidgetsPerformance from 'src/views/ui/cards/widgets/CardWidgetsPerformance'
+import CardWidgetsSalesCountry from 'src/views/ui/cards/widgets/CardWidgetsSalesCountry'
+import CardWidgetsMonthlyBudget from 'src/views/ui/cards/widgets/CardWidgetsMonthlyBudget'
+import CardWidgetsExternalLinks from 'src/views/ui/cards/widgets/CardWidgetsExternalLinks'
+import CardWidgetsWeeklyOverview from 'src/views/ui/cards/widgets/CardWidgetsWeeklyOverview'
+import CardWidgetsOrganicSessions from 'src/views/ui/cards/widgets/CardWidgetsOrganicSessions'
+import CardWidgetsProjectTimeline from 'src/views/ui/cards/widgets/CardWidgetsProjectTimeline'
+import CardWidgetsActivityTimeline from 'src/views/ui/cards/widgets/CardWidgetsActivityTimeline'
+import CardWidgetsTotalTransactions from 'src/views/ui/cards/widgets/CardWidgetsTotalTransactions'
+import CardWidgetsPerformanceOverview from 'src/views/ui/cards/widgets/CardWidgetsPerformanceOverview'
 
 const RolesComponent = () => {
   return (
+    <ApexChartWrapper>
     <Grid container spacing={6}>
-      <PageHeader
-        title={<Typography variant='h5'>Roles List</Typography>}
-        subtitle={
-          <Typography variant='body2'>
-            A role provided access to predefined menus and features so that depending on assigned role an administrator
-            can have access to what he need
-          </Typography>
-        }
-      />
-      <Grid item xs={12} sx={{ mb: 5 }}>
-        <RoleCards />
+      <Grid item xs={12} md={8}>
+        <CardWidgetsTotalTransactions />
       </Grid>
-      <PageHeader
-        title={<Typography variant='h5'>Total users with their roles</Typography>}
-        subtitle={
-          <Typography variant='body2'>
-            Find all of your company’s administrator accounts and their associate roles.
-          </Typography>
-        }
-      />
-      <Grid item xs={12}>
-        <Table />
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsPerformanceOverview />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsVisitsByDay />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsOrganicSessions />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsWeeklySales />
+      </Grid>
+      <Grid item xs={12} md={8}>
+        <CardWidgetsProjectTimeline />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsMonthlyBudget />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsPerformance />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsExternalLinks />
+      </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+        <CardWidgetsSalesCountry />
+      </Grid>
+      <Grid item xs={12} md={8}>
+        <CardWidgetsActivityTimeline />
+      </Grid>
+      <Grid item xs={12} md={4}>
+        <CardWidgetsWeeklyOverview />
       </Grid>
     </Grid>
+  </ApexChartWrapper>
   )
 }
 

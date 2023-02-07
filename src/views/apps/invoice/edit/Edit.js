@@ -7,69 +7,86 @@ import Link from 'next/link'
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
 import Alert from '@mui/material/Alert'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import { Button } from '@mui/material'
 
-// ** Third Party Components
-import axios from 'axios'
 
-// ** Demo Components Imports
-import EditCard from './EditCard'
-import EditActions from './EditActions'
-import AddPaymentDrawer from 'src/views/apps/invoice/shared-drawer/AddPaymentDrawer'
-import SendInvoiceDrawer from 'src/views/apps/invoice/shared-drawer/SendInvoiceDrawer'
+const InvoiceEdit = () => {
 
-const InvoiceEdit = ({ id }) => {
-  // ** State
-  const [error, setError] = useState(false)
-  const [data, setData] = useState(null)
-  const [addPaymentOpen, setAddPaymentOpen] = useState(false)
-  const [sendInvoiceOpen, setSendInvoiceOpen] = useState(false)
-  const toggleSendInvoiceDrawer = () => setSendInvoiceOpen(!sendInvoiceOpen)
-  const toggleAddPaymentDrawer = () => setAddPaymentOpen(!addPaymentOpen)
-  useEffect(() => {
-    axios
-      .get('/apps/invoice/single-invoice', { params: { id } })
-      .then(res => {
-        setData(res.data)
-        setError(false)
-      })
-      .catch(() => {
-        setData(null)
-        setError(true)
-      })
-  }, [id])
-  if (data) {
-    return (
-      <>
-        <Grid container spacing={6}>
-          <Grid item xl={9} md={8} xs={12}>
-            <EditCard data={data} />
-          </Grid>
-          <Grid item xl={3} md={4} xs={12}>
-            <EditActions
-              id={id}
-              toggleSendInvoiceDrawer={toggleSendInvoiceDrawer}
-              toggleAddPaymentDrawer={toggleAddPaymentDrawer}
-            />
-          </Grid>
+  return (
+    <>
+      <Grid container spacing={2}>
+        <Grid item xs={6} md={1}>
         </Grid>
-        <SendInvoiceDrawer open={sendInvoiceOpen} toggle={toggleSendInvoiceDrawer} />
-        <AddPaymentDrawer open={addPaymentOpen} toggle={toggleAddPaymentDrawer} />
-      </>
-    )
-  } else if (error) {
-    return (
-      <Grid container spacing={6}>
-        <Grid item xs={12}>
-          <Alert severity='error'>
-            Invoice with the id: {id} does not exist. Please check the list of invoices:{' '}
-            <Link href='/apps/invoice/list'>Invoice List</Link>
-          </Alert>
+        <Grid item xs={6} md={11}>
+          <span style={{ color: "black", fontWeight: "500", fontSize: "1.8rem" }}>Our apps</span>
+          <Card style={{ marginTop: '2rem', marginBottom: '2rem' }} >
+            <CardContent style={{ paddingBottom: '0rem' }}>
+              <Grid container spacing={2}>
+                <Grid item xs={8}>
+                  <h3 style={{ color: "black", fontWeight: "500" }}>Hospitable.com official mobile app</h3>
+                  <p style={{ width: '80%' }}>Download Hospitable.com's mobile app to enjoy the benefits of Hospitable.com on the go. The app offers the same functionality you know and love from the desktop experience, plus the convenience of real-time push notifications for inbox messages.</p>
+                  <Button variant='contained'
+                    style={{ textTransform: "none", display: 'inline-block', marginRight: '2rem' }}
+                    href='https://my.hospitable.com/support-documentation/article/5845339-direct-bookings-overview'
+                  >App Store</Button>
+                  <Button variant='contained'
+                    style={{ textTransform: "none", display: 'inline-block' }}
+                    href='https://my.hospitable.com/support-documentation/article/5845339-direct-bookings-overview'
+                  >Google Play</Button>
+                </Grid>
+                <Grid item xs={4}>
+                  <img src='https://my.hospitable.com/assets/images/apps-mobile-screenshots.svg'></img>
+
+                </Grid>
+              </Grid>
+
+            </CardContent>
+          </Card>
+
+          <span style={{ color: "black", fontWeight: "500", fontSize: "1.8rem" }}>Integrations</span>
+          <Grid container spacing={2} style={{  marginTop: '2rem'}}>
+            <Grid item xs={6}>
+              <Card>
+                <CardContent>
+                <h3 style={{ color: "black", fontWeight: "500"}}>First Appt</h3>
+                <p>Connect your Autohost account to enable guest screening and background checks.</p>
+                </CardContent>
+              </Card>
+
+            </Grid>
+            <Grid item xs={6}>
+              <Card>
+                <CardContent>
+                <h3 style={{ color: "black", fontWeight: "500"}}>Second App</h3>
+                <p>Connect your Autohost account to enable guest screening and background checks.</p>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={6}>
+              <Card>
+                <CardContent>
+                <h3 style={{ color: "black", fontWeight: "500"}}>Third App</h3>
+                <p>Connect your Autohost account to enable guest screening and background checks.</p>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={6}>
+              <Card>
+                <CardContent>
+                <h3 style={{ color: "black", fontWeight: "500"}}>Forth App</h3>
+                <p>Connect your Autohost account to enable guest screening and background checks.</p>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+
         </Grid>
       </Grid>
-    )
-  } else {
-    return null
-  }
+    </>
+  )
+
 }
 
 export default InvoiceEdit

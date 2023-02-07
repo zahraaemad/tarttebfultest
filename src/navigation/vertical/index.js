@@ -44,13 +44,13 @@ const navigation = () => {
     {
       title: ' Direct ',
       icon: 'mdi:message-arrow-right-outline',
-      path: '/pages/auth/login-v1'
+      path: '/apps/invoice/preview'
     
     },
     {
       title: ' Apps ',
       icon: 'mdi:dots-square',
-      path: '/pages/wizard-examples/checkout'
+      path: '/apps/invoice/edit'
    
     },
     {
