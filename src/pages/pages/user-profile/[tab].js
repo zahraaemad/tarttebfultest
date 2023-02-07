@@ -18,7 +18,7 @@ function UserProfileTab() {
         <Grid item xs={12} sm={3} md={3}>
           <ConnectedAccounts
             imgSrc='https://1000logos.net/wp-content/uploads/2017/08/Airbnb-logo.jpg'
-            content='Connect your Airbnb account with Hospitable.com.'
+            content='Connect your Airbnb account with Tatrteebful.com.'
             btn='Connect with Airbnb'
           />
 
@@ -27,21 +27,21 @@ function UserProfileTab() {
 
           <ConnectedAccounts
             imgSrc='https://www.buildupbookings.com/wp-content/uploads/2019/10/vrbo-logo.png'
-            content='Connect your Vrbo account with Hospitable.com.'
+            content='Connect your Vrbo account with Tatrteebful.com.'
             btn='Connect with Vrbo'
           />
         </Grid>
         <Grid item xs={12} sm={3} md={3}>
           <ConnectedAccounts
             imgSrc='https://www.anchorbayguesthouse.com/wp-content/uploads/2014/05/Booking-com-Logo-EPS-vector-image.png'
-            content='Connect your Booking account with Hospitable.com.'
+            content='Connect your Booking account with Tatrteebful.com.'
             btn='Connect with Booking'
           />
         </Grid>
         <Grid item xs={12} sm={3} md={3}>
           <ConnectedAccounts
             imgSrc='https://p.kindpng.com/picc/s/25-253792_invite-friends-and-partners-svg-png-icon-free.png'
-            content='Connect youraccount with Hospitable.com.'
+            content='Connect youraccount with Tatrteebful.com.'
             btn='Invite host'
           />
         </Grid>

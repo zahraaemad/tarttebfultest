@@ -56,7 +56,7 @@ const navigation = () => {
     {
       title: ' Help ',
       icon: 'mdi:message-question-outline',
-      path: '/pages/wizard-examples/checkout'
+      path: '/apps/invoice/add'
    
     },
     {

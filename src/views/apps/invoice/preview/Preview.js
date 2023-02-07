@@ -47,7 +47,7 @@ const InvoicePreview = () => {
           <Card style={{ width: "80%" }} >
             <CardContent>
               <h3 style={{ color: "black", fontWeight: "500" }}>Boost your direct bookings!</h3>
-              <p>Direct by Hospitable.com is a direct booking solution where you can<br /> build your own website that’s tailored to short-term rental bookings<br /> and syncs automatically with all your other OTAs.</p>
+              <p>Direct by Tatrteebful.com. is a direct booking solution where you can<br /> build your own website that’s tailored to short-term rental bookings<br /> and syncs automatically with all your other OTAs.</p>
               <Button variant='contained'
                 style={{ textTransform: "none" }}
                 href='https://my.hospitable.com/support-documentation/article/5845339-direct-bookings-overview'
@@ -62,8 +62,8 @@ const InvoicePreview = () => {
             style={{ textTransform: "none", display: 'inline-block' }}>
             + Create new</Button>
           <Divider style={{ marginRight: '0rem' }} />
-          <a href='https://my.hospitable.com/direct/sites/03a911b8/overview' style={{ textDecoration: "none", display: "inline-block", width: "50%" }} >bare.hospitable.rentals</a>
-          <a href='https://my.hospitable.com/direct/sites/03a911b8/overview' style={{ textDecoration: "none", display: "inline-block" }} >bare.hospitable.rentals</a>
+          <a href='https://my.hospitable.com/direct/sites/03a911b8/overview' style={{ textDecoration: "none", display: "inline-block", width: "50%" }} >bare.Tatrteebful.rentals</a>
+          <a href='https://my.hospitable.com/direct/sites/03a911b8/overview' style={{ textDecoration: "none", display: "inline-block" }} >bare.Tatrteebful.rentals</a>
         </Grid>
       </Grid>
     </>

@@ -40,7 +40,7 @@ const UserList = () => {
       <CardContent>
         <Grid container spacing={2}>
           <Grid item xs={6} md={3} sx={{ background: "#f8f7f9" }}>
-            <h3 style={{ color: "#787eff" }}>Operations</h3>
+            <h2 style={{ color: "#787eff",fontWeight:'500', marginLeft:'2rem' }}>Operations</h2>
             <List>
               <ListItem >
                 <ListItemButton>
