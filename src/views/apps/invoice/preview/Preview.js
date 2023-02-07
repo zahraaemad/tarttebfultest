@@ -3,73 +3,72 @@ import { useState, useEffect } from 'react'
 
 // ** Next Import
 import Link from 'next/link'
-
+import * as React from 'react';
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
 import Alert from '@mui/material/Alert'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import { Button } from '@mui/material'
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Divider from '@mui/material/Divider';
 
-// ** Third Party Components
-import axios from 'axios'
+const options = ['This month', 'Last month','This year','Last year', 'Last week'];
+const InvoicePreview = () => {
 
-// ** Demo Components Imports
-import PreviewCard from 'src/views/apps/invoice/preview/PreviewCard'
-import PreviewActions from 'src/views/apps/invoice/preview/PreviewActions'
-import AddPaymentDrawer from 'src/views/apps/invoice/shared-drawer/AddPaymentDrawer'
-import SendInvoiceDrawer from 'src/views/apps/invoice/shared-drawer/SendInvoiceDrawer'
-
-const InvoicePreview = ({ id }) => {
-  // ** State
-  const [error, setError] = useState(false)
-  const [data, setData] = useState(null)
-  const [addPaymentOpen, setAddPaymentOpen] = useState(false)
-  const [sendInvoiceOpen, setSendInvoiceOpen] = useState(false)
-  useEffect(() => {
-    axios
-      .get('/apps/invoice/single-invoice', { params: { id } })
-      .then(res => {
-        setData(res.data)
-        setError(false)
-      })
-      .catch(() => {
-        setData(null)
-        setError(true)
-      })
-  }, [id])
-  const toggleSendInvoiceDrawer = () => setSendInvoiceOpen(!sendInvoiceOpen)
-  const toggleAddPaymentDrawer = () => setAddPaymentOpen(!addPaymentOpen)
-  if (data) {
-    return (
-      <>
-        <Grid container spacing={6}>
-          <Grid item xl={9} md={8} xs={12}>
-            <PreviewCard data={data} />
-          </Grid>
-          <Grid item xl={3} md={4} xs={12}>
-            <PreviewActions
-              id={id}
-              toggleAddPaymentDrawer={toggleAddPaymentDrawer}
-              toggleSendInvoiceDrawer={toggleSendInvoiceDrawer}
-            />
-          </Grid>
+  const [value, setValue] = React.useState(options[0]);
+  const [inputValue, setInputValue] = React.useState('');
+  return (
+    <>
+      <Grid container spacing={2}>
+        <Grid item xs={6} md={1}>
         </Grid>
-        <SendInvoiceDrawer open={sendInvoiceOpen} toggle={toggleSendInvoiceDrawer} />
-        <AddPaymentDrawer open={addPaymentOpen} toggle={toggleAddPaymentDrawer} />
-      </>
-    )
-  } else if (error) {
-    return (
-      <Grid container spacing={6}>
-        <Grid item xs={12}>
-          <Alert severity='error'>
-            Invoice with the id: {id} does not exist. Please check the list of invoices:{' '}
-            <Link href='/apps/invoice/list'>Invoice List</Link>
-          </Alert>
+        <Grid item xs={6} md={11}>
+
+          <span
+            style={{ color: "black", fontWeight: "500", display: 'inline-block', width: "60%", fontSize: "1.8rem" }}
+          >Overview</span>
+          <Autocomplete
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+              setInputValue(newInputValue);
+            }}
+            id="controllable-states-demo"
+            options={options}
+            sx={{ width: 200, display: 'inline-block', marginBottom: '2rem' }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+
+          <Card style={{ width: "80%" }} >
+            <CardContent>
+              <h3 style={{ color: "black", fontWeight: "500" }}>Boost your direct bookings!</h3>
+              <p>Direct by Hospitable.com is a direct booking solution where you can<br /> build your own website that’s tailored to short-term rental bookings<br /> and syncs automatically with all your other OTAs.</p>
+              <Button variant='contained'
+                style={{ textTransform: "none" }}
+                href='https://my.hospitable.com/support-documentation/article/5845339-direct-bookings-overview'
+              >Find out more</Button>
+            </CardContent>
+          </Card>
+          <span
+            style={{ color: "black", fontWeight: "500", display: 'inline-block', width: "67%", fontSize: "1.8rem", marginTop: '2rem' }}
+          >Sites</span>
+          <Button variant='contained'
+            href='https://my.hospitable.com/direct/sites/new'
+            style={{ textTransform: "none", display: 'inline-block' }}>
+            + Create new</Button>
+          <Divider style={{ marginRight: '0rem' }} />
+          <a href='https://my.hospitable.com/direct/sites/03a911b8/overview' style={{ textDecoration: "none", display: "inline-block", width: "50%" }} >bare.hospitable.rentals</a>
+          <a href='https://my.hospitable.com/direct/sites/03a911b8/overview' style={{ textDecoration: "none", display: "inline-block" }} >bare.hospitable.rentals</a>
         </Grid>
       </Grid>
-    )
-  } else {
-    return null
-  }
+    </>
+  )
+
 }
 
 export default InvoicePreview
