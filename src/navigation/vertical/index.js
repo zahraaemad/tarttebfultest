@@ -56,13 +56,13 @@ const navigation = () => {
     {
       title: ' Help ',
       icon: 'mdi:message-question-outline',
-      path: '/apps/invoice/add'
+      path: '/pages/help-center'
    
     },
     {
       title: ' Settings ',
       icon: 'mdi:gear-outline',
-      path: '/pages/wizard-examples/checkout'
+      path: '/pages/account-settings/account'
    
     },
     
